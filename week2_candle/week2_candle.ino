@@ -1,11 +1,5 @@
 #include <Adafruit_NeoPixel.h>
 
-//steps - fade
-//amplitude and brightness - 
-//color 
-
-//分开控制每个LED 看单独的behavior color or flickering, 分开看每个属性怎样最好 a range of property for each 属性
-//timing & faded curve 
 
 const int neoPixelPin = 5;  // control pin
 const int pixelCount = 7;   // number of pixels
@@ -16,8 +10,8 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(pixelCount, neoPixelPin, NEO_GRBW + 
 
 int h = 3800;  // hue hue<2000, reder
 int s = 250;  // saturation
-int minB = 80;  // intensity - min
-int maxB = 180; // intensity - max
+int minB = 60;  // intensity - min
+int maxB = 210; // intensity - max
 int fadeStep = 1;
 int hRange = 1800; //2000-5600
 
@@ -34,7 +28,9 @@ int blueChange = 1;
 //sine curve
 unsigned long interval = 50;  
 unsigned long previousMillis = 0; 
-float brightnessPhase = 0;  
+
+float brightnessPhase[pixelCount];  
+float phaseIncrement[pixelCount];  
 
 void setup() {
   strip.begin();  // initialize pixel strip
@@ -43,7 +39,10 @@ void setup() {
 
   randomSeed(analogRead(0));  //learned this from chat,randomize initial number
 
-  
+  for (int pixel = 0; pixel < pixelCount; pixel++) {
+    brightnessPhase[pixel] = random(0, 2 * PI * 100) / 100.0;   
+    phaseIncrement[pixel] = random(20,50) / 100.0;  //5-15 very slow, higher the better. 20-50 seems ideal combining 60 - 220.
+  }
 }
 
 void loop() {
@@ -51,43 +50,41 @@ void loop() {
   //brightness
    unsigned long currentMillis = millis();
 
-  
   if (currentMillis - previousMillis >= interval) {
     previousMillis = currentMillis;
 
+  for (int pixel = 0; pixel < pixelCount; pixel++) {
   
-    brightnessPhase += 0.5;  // brightness changing speed ⚠️
-    if (brightnessPhase >= 2 * PI) {
-      brightnessPhase -= 2 * PI; 
-    }
+   brightnessPhase[pixel] += phaseIncrement[pixel];
+      if (brightnessPhase[pixel] >= 2 * PI) {
+        brightnessPhase[pixel] -= 2 * PI; 
+      }
 
-    float brightnessSin = sin(brightnessPhase);  
-    Serial.print(brightnessSin);
-    Serial.println();
+      // Serial.print("Pixel ");
+      // Serial.print(pixel);
+      // Serial.print(": brightnessPhase = ");
+      // Serial.println(brightnessPhase[pixel], 4);
+
+    float brightnessSin = sin(brightnessPhase[pixel]);  
+  
     int brightness = map(brightnessSin * 1000, -1000, 1000, minB, maxB); 
-
-
-
   //color
 
-   for (int pixel = 0; pixel < pixelCount; pixel++) {
-   
-    int hue = h + random(-hRange / 2, hRange / 4);  // randomize, 2000-4250
+    int hue = h + random(-hRange / 2, hRange / 10);  // randomize, 2000-3980
+   // Serial.println(hue);
    // int brightness = random(minB, maxB);    //randomize
     
     // if (pixel >= 7) {  //control each light 
     //   brightness = random(minB + 80, maxB); //cannot just random ig
     // }
 
-    long color = strip.ColorHSV(2200, s, brightness);
+    long color = strip.ColorHSV(hue, s, brightness);
     strip.setPixelColor(pixel, color);
   }
 
   }
  
   strip.show();
-  
   delay(100); 
-
 
 }
