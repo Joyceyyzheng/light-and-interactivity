@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link rel="stylesheet" href="style.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>hello world</p>
+    <div class="real-parent">
+      <div class="frame-border"></div>
+      <div class="frame-parent">
+        <div class="frame-background-tophalf"></div>
+        <div class="frame-background-btmhalf"></div>
+        <div class="frame-stroke" id="stroke1"></div>
+        <div class="frame-stroke" id="stroke2"></div>
+        <div class="frame" id="button1" onclick="toggleActive(this)"></div>
+        <div class="frame" id="button2" onclick="toggleActive(this)"></div>
+        <div class="frame" id="button3" onclick="toggleActive(this)"></div>
+      </div>
+    </div>
+    <div class="toggle-switch">
+      <!-- Hidden checkbox to track toggle state -->
+      <input type="checkbox" id="toggle-btn" />
+
+      <!-- Label acts as the visual switch -->
+      <label for="toggle-btn" class="switch"></label>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
