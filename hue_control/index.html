@@ -7,8 +7,152 @@
     <title>Document</title>
   </head>
   <body>
-    <p>hello world</p>
-    <div class="real-parent">
+    <div class="interface">
+      <div class="column" id="column1">
+        <div class="unit" id="switch1">
+          <div class="real-parent">
+            <div class="frame-border1"></div>
+            <div class="frame-parent1">
+              <div class="frame-background-tophalf1"></div>
+              <div class="frame-background-btmhalf1"></div>
+              <div class="frame-stroke"></div>
+              <!-- <div class="frame-stroke" id="stroke2"></div> -->
+              <!-- <div class="frame" id="button1" onclick="toggleActive(this)"></div>
+                <div class="frame" id="button2" onclick="toggleActive(this)"></div>
+                <div class="frame" id="button3" onclick="toggleActive(this)"></div> -->
+              <div class="frame frame-left" id="light1"></div>
+              <div class="frame frame-right" id="light2"></div>
+            </div>
+          </div>
+        </div>
+        <div class="unit" id="modes">
+          <div class="mode" id="mode1">
+            <div class="toggle-switch">
+              <input type="checkbox" id="toggle-btn1" />
+
+              <label for="toggle-btn1" class="switch">
+                <div class="inner-knob"></div>
+              </label>
+            </div>
+            <span class="mode-text">Mode 1</span>
+          </div>
+
+          <div class="mode" id="mode2">
+            <div class="toggle-switch">
+              <input type="checkbox" id="toggle-btn2" />
+
+              <label for="toggle-btn2" class="switch">
+                <div class="inner-knob"></div>
+              </label>
+            </div>
+            <span class="mode-text">Mode 2</span>
+          </div>
+
+          <div class="mode" id="mode3">
+            <div class="toggle-switch">
+              <input type="checkbox" id="toggle-btn3" />
+
+              <label for="toggle-btn3" class="switch">
+                <div class="inner-knob"></div>
+              </label>
+            </div>
+            <span class="mode-text">Mode 3</span>
+          </div>
+
+          <div class="mode" id="mode4">
+            <div class="toggle-switch">
+              <input type="checkbox" id="toggle-btn4" />
+
+              <label for="toggle-btn4" class="switch">
+                <div class="inner-knob"></div>
+              </label>
+            </div>
+            <span class="mode-text">Mode 4</span>
+          </div>
+
+          <div class="mode" id="mode5">
+            <div class="toggle-switch">
+              <input type="checkbox" id="toggle-btn5" />
+
+              <label for="toggle-btn5" class="switch">
+                <div class="inner-knob"></div>
+              </label>
+            </div>
+            <span class="mode-text">Mode 5</span>
+          </div>
+        </div>
+      </div>
+      <div class="column" id="column2">
+        <div class="unit" id="switch2">
+          <div class="real-parent">
+            <div class="frame-border1"></div>
+            <div class="frame-parent1">
+              <div class="frame-background-tophalf1"></div>
+              <div class="frame-background-btmhalf1"></div>
+              <div class="frame-stroke"></div>
+              <!-- <div class="frame-stroke" id="stroke2"></div> -->
+              <!-- <div class="frame" id="button1" onclick="toggleActive(this)"></div>
+                  <div class="frame" id="button2" onclick="toggleActive(this)"></div>
+                  <div class="frame" id="button3" onclick="toggleActive(this)"></div> -->
+              <div class="frame frame-left" id="light3"></div>
+              <div class="frame frame-right" id="light4"></div>
+            </div>
+          </div>
+        </div>
+        <div class="unit" id="description">AAAA</div>
+      </div>
+      <div class="column" id="column3">
+        <div class="unit" id="control">
+          <div class="dropdown">
+            <button class="dropdown-toggle" onclick="toggleDropdown()">
+              <span class="dropdown-text">light 1</span>
+              <span class="dropdown-arrow"></span>
+            </button>
+
+            <!-- The hidden dropdown menu -->
+            <ul class="dropdown-menu">
+              <li>light 1</li>
+              <li>light 2</li>
+              <li>light 3</li>
+              <li>light 4</li>
+              <li>light 5</li>
+              <li>light 6</li>
+            </ul>
+          </div>
+          <div class="hue-slider">
+            <span>hue</span>
+            <div class="slider-container">
+              <input type="range" class="slider" min="0" max="100" value="50" />
+            </div>
+          </div>
+          <div class="bri-slider">
+            <span>brightness</span>
+            <div class="slider-container">
+              <input type="range" class="slider" min="0" max="100" value="50" />
+            </div>
+          </div>
+          <span id="submit">change</span>
+        </div>
+        <div class="unit" id="switch3">
+          <div class="real-parent">
+            <div class="frame-border1"></div>
+            <div class="frame-parent1">
+              <div class="frame-background-tophalf1"></div>
+              <div class="frame-background-btmhalf1"></div>
+              <div class="frame-stroke"></div>
+              <!-- <div class="frame-stroke" id="stroke2"></div> -->
+              <!-- <div class="frame" id="button1" onclick="toggleActive(this)"></div>
+                <div class="frame" id="button2" onclick="toggleActive(this)"></div>
+                <div class="frame" id="button3" onclick="toggleActive(this)"></div> -->
+              <div class="frame frame-left" id="light5"></div>
+              <div class="frame frame-right" id="light6"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <p>hello world</p> -->
+    <!-- <div class="real-parent">
       <div class="frame-border"></div>
       <div class="frame-parent">
         <div class="frame-background-tophalf"></div>
@@ -19,14 +163,18 @@
         <div class="frame" id="button2" onclick="toggleActive(this)"></div>
         <div class="frame" id="button3" onclick="toggleActive(this)"></div>
       </div>
-    </div>
-    <div class="toggle-switch">
-      <!-- Hidden checkbox to track toggle state -->
+    </div> -->
+    <!-- <div class="toggle-switch">
       <input type="checkbox" id="toggle-btn" />
 
-      <!-- Label acts as the visual switch -->
-      <label for="toggle-btn" class="switch"></label>
+      <label for="toggle-btn" class="switch">
+        <div class="inner-knob"></div>
+      </label>
     </div>
+
+    <div class="slider-container">
+      <input type="range" class="slider" min="0" max="100" value="50" />
+    </div> -->
     <script src="script.js"></script>
   </body>
 </html>
