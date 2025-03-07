@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link rel="stylesheet" href="style.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="interface">
+      <div class="column" id="column1">
+        <div class="unit" id="switch1">
+          <div class="real-parent">
+            <div class="frame-border1"></div>
+            <div class="frame-parent1">
+              <div class="frame-background-tophalf1"></div>
+              <div class="frame-background-btmhalf1"></div>
+              <div class="frame-stroke"></div>
+              <!-- <div class="frame-stroke" id="stroke2"></div> -->
+              <!-- <div class="frame" id="button1" onclick="toggleActive(this)"></div>
+                <div class="frame" id="button2" onclick="toggleActive(this)"></div>
+                <div class="frame" id="button3" onclick="toggleActive(this)"></div> -->
+              <div class="frame frame-left" id="light1"></div>
+              <div class="frame frame-right" id="light2"></div>
+            </div>
+          </div>
+        </div>
+        <div class="unit" id="modes">
+          <div class="modes-container">
+            <div class="mode" id="mode1">
+              <div class="toggle-switch">
+                <input type="checkbox" id="toggle-btn1" />
+
+                <label for="toggle-btn1" class="switch">
+                  <div class="inner-knob"></div>
+                </label>
+              </div>
+              <span class="mode-text">study</span>
+            </div>
+
+            <div class="mode" id="mode2">
+              <div class="toggle-switch">
+                <input type="checkbox" id="toggle-btn2" />
+
+                <label for="toggle-btn2" class="switch">
+                  <div class="inner-knob"></div>
+                </label>
+              </div>
+              <span class="mode-text">meeting</span>
+            </div>
+
+            <div class="mode" id="mode3">
+              <div class="toggle-switch">
+                <input type="checkbox" id="toggle-btn3" />
+
+                <label for="toggle-btn3" class="switch">
+                  <div class="inner-knob"></div>
+                </label>
+              </div>
+              <span class="mode-text">severance</span>
+            </div>
+
+            <div class="mode" id="mode4">
+              <div class="toggle-switch">
+                <input type="checkbox" id="toggle-btn4" />
+
+                <label for="toggle-btn4" class="switch">
+                  <div class="inner-knob"></div>
+                </label>
+              </div>
+              <span class="mode-text">party</span>
+            </div>
+
+            <div class="mode" id="mode5">
+              <div class="toggle-switch">
+                <input type="checkbox" id="toggle-btn5" />
+
+                <label for="toggle-btn5" class="switch">
+                  <div class="inner-knob"></div>
+                </label>
+              </div>
+              <span class="mode-text">omg i wanna sleep</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="column" id="column2">
+        <div class="unit" id="switch2">
+          <div class="real-parent">
+            <div class="frame-border1"></div>
+            <div class="frame-parent1">
+              <div class="frame-background-tophalf1"></div>
+              <div class="frame-background-btmhalf1"></div>
+              <div class="frame-stroke"></div>
+              <!-- <div class="frame-stroke" id="stroke2"></div> -->
+              <!-- <div class="frame" id="button1" onclick="toggleActive(this)"></div>
+                  <div class="frame" id="button2" onclick="toggleActive(this)"></div>
+                  <div class="frame" id="button3" onclick="toggleActive(this)"></div> -->
+              <div class="frame frame-left" id="light3"></div>
+              <div class="frame frame-right" id="light4"></div>
+            </div>
+          </div>
+        </div>
+        <div class="unit" id="description">
+          <div id="reset">reset</div>
+          developed by joyce z <br />css style @drams
+        </div>
+      </div>
+      <div class="column" id="column3">
+        <div class="unit" id="control">
+          <div class="dropdown">
+            <button class="dropdown-toggle" onclick="toggleDropdown()">
+              <span class="dropdown-text">choose light</span>
+              <span class="dropdown-arrow"></span>
+            </button>
+
+            <!-- The hidden dropdown menu -->
+            <ul class="dropdown-menu">
+              <li>1</li>
+              <li>8</li>
+              <li>9</li>
+              <li>10</li>
+              <li>7</li>
+              <li>4</li>
+            </ul>
+          </div>
+          <div class="hue-slider">
+            <span>hue (cold - warm)</span>
+            <div class="slider-container">
+              <input
+                id="hue"
+                type="range"
+                class="slider"
+                min="250"
+                max="454"
+                value="300"
+              />
+            </div>
+          </div>
+          <div class="bri-slider">
+            <span>brightness (low - high)</span>
+            <div class="slider-container">
+              <input
+                id="bri"
+                type="range"
+                class="slider"
+                min="0"
+                max="255"
+                value="50"
+              />
+            </div>
+          </div>
+          <!-- <span id="submit">change</span> -->
+        </div>
+        <div class="unit" id="switch3">
+          <div class="real-parent">
+            <div class="frame-border1"></div>
+            <div class="frame-parent1">
+              <div class="frame-background-tophalf1"></div>
+              <div class="frame-background-btmhalf1"></div>
+              <div class="frame-stroke"></div>
+              <!-- <div class="frame-stroke" id="stroke2"></div> -->
+              <!-- <div class="frame" id="button1" onclick="toggleActive(this)"></div>
+                <div class="frame" id="button2" onclick="toggleActive(this)"></div>
+                <div class="frame" id="button3" onclick="toggleActive(this)"></div> -->
+              <div class="frame frame-left" id="light5"></div>
+              <div class="frame frame-right" id="light6"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- new one-light control -->
+
+    <div class="real-parent-wide">
+      <div class="frame-border1"></div>
+      <div class="frame-parent1">
+        <div class="frame-background-tophalf1"></div>
+        <div class="frame-background-btmhalf1"></div>
+        <!-- <div class="frame-stroke"></div> -->
+        <!-- <div class="frame-stroke" id="stroke2"></div> -->
+        <!-- <div class="frame" id="button1" onclick="toggleActive(this)"></div>
+          <div class="frame" id="button2" onclick="toggleActive(this)"></div>
+          <div class="frame" id="button3" onclick="toggleActive(this)"></div> -->
+        <div class="frame wide" id="light7"></div>
+      </div>
+    </div>
+
+    <!-- <p>hello world</p> -->
+    <!-- <div class="real-parent">
+      <div class="frame-border"></div>
+      <div class="frame-parent">
+        <div class="frame-background-tophalf"></div>
+        <div class="frame-background-btmhalf"></div>
+        <div class="frame-stroke" id="stroke1"></div>
+        <div class="frame-stroke" id="stroke2"></div>
+        <div class="frame" id="button1" onclick="toggleActive(this)"></div>
+        <div class="frame" id="button2" onclick="toggleActive(this)"></div>
+        <div class="frame" id="button3" onclick="toggleActive(this)"></div>
+      </div>
+    </div> -->
+    <!-- <div class="toggle-switch">
+      <input type="checkbox" id="toggle-btn" />
+
+      <label for="toggle-btn" class="switch">
+        <div class="inner-knob"></div>
+      </label>
+    </div>
+
+    <div class="slider-container">
+      <input type="range" class="slider" min="0" max="100" value="50" />
+    </div> -->
+    <script src="script.js"></script>
+  </body>
+</html>
