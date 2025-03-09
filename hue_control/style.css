@@ -415,7 +415,7 @@
 }
 
 #left {
-  height: 92vh;
+  height: 90vh;
   margin-left: 0;
   gap: 0.1rem;
 }
@@ -638,10 +638,10 @@
 
   gap: 1rem;
 
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
 }
 
 .heading-map {
@@ -649,14 +649,21 @@
   height: 2rem;
   border-radius: 50%;
   background-color: #222;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
 }
 
 #map {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  left: 70%;
+  transform: translateX(-50%);
+  width: 65%;
+  height: auto;
 
   pointer-events: none;
   z-index: 10;

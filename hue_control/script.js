@@ -116,10 +116,11 @@ menuItems.forEach((item) => {
 
     toggleDropdown();
     selectedLightNumber = parseInt(this.dataset.light);
+    //console.log("Selected light number:", selectedLightNumber);
 
     console.log(
       "Selected value:",
-      selectedText,
+      labelSpan.textContent,
       "Light number:",
       selectedLightNumber
     );
@@ -359,3 +360,42 @@ map.addEventListener("click", function () {
   const image = document.getElementById("map");
   image.classList.toggle("hidden");
 });
+
+// document.addEventListener("DOMContentLoaded", async function () {
+//   // Create or resume the AudioContext:
+//   const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+//   try {
+//     // Load the AudioWorklet module
+//     await audioContext.audioWorklet.addModule("clap-processor.js");
+//   } catch (error) {
+//     console.error("Error loading AudioWorklet module:", error);
+//     return;
+//   }
+
+//   // Request access to the microphone
+//   try {
+//     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+//     const micSource = audioContext.createMediaStreamSource(stream);
+
+//     // Create the AudioWorkletNode
+//     const clapNode = new AudioWorkletNode(audioContext, "clap-processor");
+
+//     // Listen for messages from the worklet
+//     clapNode.port.onmessage = (event) => {
+//       if (event.data.event === "doubleclap") {
+//         console.log("Double clap detected! Triggering reset.");
+//         // Trigger the reset button (simulate a click)
+//         const resetButton = document.getElementById("light-main");
+//         resetButton.click();
+//       }
+//     };
+
+//     // Connect the microphone to the worklet, and then optionally to the destination
+//     micSource.connect(clapNode);
+//     // You can choose not to connect to audioContext.destination to avoid playback:
+//     // clapNode.connect(audioContext.destination);
+//   } catch (err) {
+//     console.error("Error accessing microphone:", err);
+//   }
+// });
