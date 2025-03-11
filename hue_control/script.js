@@ -47,6 +47,8 @@ const lightStates = {
   7: false,
   4: false,
 };
+                                                                                                                                                                  
+const clickSound = new Audio("click.wav");
 
 function toggleActive(frame, lightNum) {
   //css working
@@ -60,6 +62,12 @@ function toggleActive(frame, lightNum) {
   const requestPath = `lights/${lightNum}/state/`;
   sendRequest(requestPath, "PUT", newLightState);
   console.log("lightNum is", lightNum);
+
+  //sound
+  clickSound.currentTime = 0;
+  clickSound.play().catch((error) => {
+    console.error("Playback failed:", error);
+  });
 }
 
 function sendRequest(request, requestMethod, data) {
